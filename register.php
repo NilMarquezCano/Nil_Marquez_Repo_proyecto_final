@@ -24,7 +24,7 @@
 <h2>Registro de Usuario</h2>
     <div class= "register_nombre">
         <label>Usuario</label>
-        <input type="text" name="username" id="username" maxlength="30" required onblur="validaNombre()"> 
+        <input type="text" name="username" id="username"  required onblur="validaNombre()"> 
 
     </div>
         <p id="error_usuario"></p><br>
@@ -34,14 +34,14 @@
         <label>Password</label>
         <input type="password" name="password" id="password" required onblur="validaPassword()">
     </div>
-        <p id="error_pasword"></p><br>
+        <p id="error_password"></p><br>
     <br><br>
 
     <div class="register_conf_password">
         <label>Confirmar Password</label>
         <input type="password" name="confirmar_password" id="confirmar_password" required onblur="validaConPass()">
     </div>
-        <p id="error_confirmar_pasword"></p><br>
+        <p id="error_confirmar_password"></p><br>
     <br><br>
 
     <div class="register_email">
