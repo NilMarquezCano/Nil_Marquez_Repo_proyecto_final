@@ -1,8 +1,5 @@
 <?php
  session_start();
- $usuario= $_SESSION['username'];
-  $id= $_SESSION['id'];
-  include "../scripts/conexion.php";
 ?>
 
 <!DOCTYPE html>
@@ -50,22 +47,7 @@
     </div>
     <p id="error_email"></p><br>
     <br><br>
-
-    <div class="register_DNI">
-        <label>DNI</label>
-        <input type="text" name="email" id="email" required onblur="validaDNI()">
-    </div>
-    <p id="error_dni"></p><br>
-    <br><br>
-
-    <div class="register_telef">
-        <label>Telefono</label>
-        <input type="text" name="email" id="email" required onblur="validaTelefono()">
-    </div>
-        <p id="error_telefono"></p><br>
-    <br><br>
-
-
+    
 <button type="submit">Registrarse</button>
 <a href="login.html">
     Volver al inicio
