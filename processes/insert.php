@@ -1,68 +1,71 @@
 <?php
-include '../scripts/conexion.php';
+include("../scripts/conexion.php");
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if(isset($_POST['username']) && isset($_POST['email'])  && isset($_POST['password']) && isset($_POST['confirmar_password'])){
-        session_start();
+$usuario = $_POST['username'];
+$password = $_POST['password'];
+$email = $_POST['email'];
 
-        $usuario = $_POST['username'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $password2 = $_POST['confirmar_password'];
+/* VALIDACIONES SERVIDOR */
 
-         // Validación de campos vacíos
-        if (empty($usuario) || empty($email)|| empty($password) || empty($password2)) {
-            echo "<script>
-                    alert('Error: Todos los campos son obligatorios.');
-                    window.history.back();
-                  </script>";
-            exit;
-        }
-
-        if($password !== $password2){
-            echo "<script>
-                    alert('Error: Las contraseñas no coinciden');
-                    window.history.back();
-                  </script>";
-            exit;
-        }
-
-        // Encriptar la contraseña (Seguridad)
-        $pass_hash = password_hash($password, PASSWORD_DEFAULT);
-
-        // 7. Preparar la consulta SQL (Estilo Procedural)
-        $sql = "INSERT INTO usuario (nombre, email, contraseña) VALUES (?, ?, ?)";
-        $result = mysqli_prepare($conn, $sql);
-
-        if ($result) {
-        // "sss" indica que los 3 parámetros son strings
-        // Orden: usuario ($usuario), password ($pass_hash), nombre_completo ($nombre)
-        mysqli_stmt_bind_param($result, "sss", $usuario, $email, $pass_hash,);
-
-        //Ejecutar la intersección
-        if(mysqli_stmt_execute($result)){
-            echo "<script>
-                    alert('Registro exitoso. Ya puede iniciar sesión.');
-                    window.location.href = '../view/login.html';
-                </script>";
-
-        }else{
-            echo "Error al registrar" . mysqli_error($conn);
-        }
-        
-    }else{
-        echo "Error en la preparación de la consulta: " . mysqli_error($conn);
-
-    }
-}else{
-    echo "Faltan datos en el formulario." ;
+if(strlen($usuario) == 0 || strlen($usuario) > 30){
+    die("Usuario inválido");
+}else if(strlen($password) == 0 || strlen($password) > 255){
+    die("Usuario inválido");
+}else if(strlen($email) == 0 || strlen($email) > 50){
+    die("Usuario inválido");
 }
-// Cerramos la conexión al final
-    mysqli_close($conn);
 
+if(!preg_match('/[A-Z]/', $password )){
+    die("La contraseña debe tener al menos una mayúscula");
+}
+if(strlen($email) == 0 ){
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "La dirección de email '$email' es válida.\n";
+}
+if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "La dirección de email '$email' es válida.\n";
 } else {
-    // Si intentan entrar al script sin enviar al formulario, redirigimos al registro
-    header("Location: ../processes/register.php");
-    exit;
+    echo "La dirección de email no '$email' es válida.\n";
 }
+}
+
+
+/* COMPROBAR SI EXISTE */
+
+$sql = "SELECT * FROM usuario WHERE nombre='$usuario'";
+$resultado = mysqli_query($conn,$sql);
+
+if(mysqli_num_rows($resultado) > 0){
+    die("El usuario ya existe");
+}
+
+/* HASH PASSWORD */
+
+$passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+/* INSERTAR */
+
+$sqlInsert = "INSERT INTO usuario (nombre, contraseña, email) VALUES (?, ?, ?)";
+$resultado_2 = mysqli_prepare($conn,$sqlInsert);
+        if ($resultado_2) {
+            // "sss" indica que los 3 parámetros son strings.
+            // Orden: usuario ($user), password ($pass_hash), nombre_completo ($nombre)
+                mysqli_stmt_bind_param($resultado_2, "sss", $usuario, $passwordHash, $email);
+
+            // Ejecutar la inserción
+            if (mysqli_stmt_execute($resultado_2)) {
+                echo "<script>
+                        alert('¡Registro exitoso! Ya puedes iniciar sesión.');
+                        window.location.href = '../view/login.html';
+                    </script>";
+            } else {
+                echo "<script>
+                        alert('¡Registro fallido!.');
+                        window.location.href = '../view/register.php';
+                    </script>";
+            }
+            mysqli_stmt_close($resultado_2);
+        }else{
+            echo "Error en la preparacion de la consulta " . mysqli_error($conn);
+        }
 ?>

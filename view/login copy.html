@@ -7,18 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login artistas
     </title>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
     <script defer src="../scripts/validacion_register.js"></script>
 </head>
 
 <body>
     <div class="loginbox">
         <form action="../scripts/autenticacion.php" method="POST">
-
+            
             <h2>INICIAR SESIÓN</h2>
             <div class="divmail">
                 <div class="cajamail">
-                    <input type="text" name="username" id="username" placeholder="Introducir usuario" onblur="validaNombre()">
+                    <input type="text" name="username" id="username" placeholder="Introducir usuario o email" onblur="validaNombre()">
                     <div class="divmail">
                     </div>
                     <p id="error_usuario"></p><br>
@@ -29,12 +29,6 @@
                     </div>
                     <p id="error_password"></p><br>
                 </div>
-
-                <div class="divpass">
-                    <div class="cajacontra">
-                        <input type="text" name="email" id="email" placeholder="Introducir email" onblur="validaEmail()">
-                    </div>
-                    <p id="error_email"></p><br>
                 </div>
                 <div>
                     <input type="submit" name="login" value="Login"></input>
