@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Registro entrenador</title>
 <link rel="stylesheet" href="../css/register.css">
-<script src="../scripts/validacion_register_register.js"></script>
+<script src="../processes/js/registro_usuarios.js"></script>
 <link rel="icon" href="../img/pngtree-musical-note-festival-element-commercial-material-music-symbol-notemusic-materialcarnivalmusiccommercial-materialc4d-png-image_618221.png" type="image/png">
 
 </head>
