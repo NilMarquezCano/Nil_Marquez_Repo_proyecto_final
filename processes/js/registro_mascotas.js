@@ -40,6 +40,3 @@ function validaChip() {
     }
     gestionarError("error_chip", mensaje);
 }
-
-
-

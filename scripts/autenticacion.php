@@ -2,15 +2,34 @@
 include '../scripts/conexion.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if(isset($_POST['username']) && isset($_POST['password'])  && isset($_POST['email'])){
+    if(isset($_POST['username']) && isset($_POST['password'])){
         session_start();
         $usuario = $_POST['username'];
         $pass = $_POST['password']; // la contra que escribio el user
-        $email = $_POST['email'];
+
+
+
+        $caracteres = str_split($usuario);
+        $tieneArroba = false;
+
+        // Recorremos cada carácter para buscar la arroba
+        foreach ($caracteres as $char) {
+            if ($char === '@') {
+                $tieneArroba = true;
+                break; // Si la encontramos, no hace falta seguir revisando
+            }
+        }
+
+        // Decidimos la consulta según lo que encontramos
+        if ($tieneArroba) {
+            $sql = "SELECT * FROM usuario WHERE email = '$usuario'";
+        } else {
+            $sql = "SELECT * FROM usuario WHERE nombre = '$usuario'";
+        }
 
         //buscamos al usuario por su nombre (no por la contra)
-        $query = "SELECT nombre, contraseña, email, id_usuario FROM usuario WHERE nombre = '$usuario'";
-        $resultado = mysqli_query($conn,$query);
+        $resultado = mysqli_query($conn,$sql);
+
 
         if (mysqli_num_rows($resultado) > 0){
             $fila =mysqli_fetch_assoc($resultado);

@@ -76,5 +76,5 @@ function validaConPass(){
     } else if (contra !== valor) {
         mensaje = "El pasword no coincide";
     } 
-    gestionarError("error_confirmar_password", mensaje);
+    gestionarError("error_confirmar_psasword", mensaje);
 }

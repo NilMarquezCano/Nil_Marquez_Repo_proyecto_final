@@ -23,13 +23,3 @@ function validaNombre(){
     }
     gestionarError("error_usuario", mensaje);
 }
-
-
-
-
-
-
-
-
-
-
