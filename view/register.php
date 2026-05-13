@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Registro entrenador</title>
 <link rel="stylesheet" href="../css/register.css">
-<script src="../processes/js/registro_usuarios.js"></script>
+<script src="../processes/validaciones/js/registro_usuarios.js"></script>
 <link rel="icon" href="../img/pngtree-musical-note-festival-element-commercial-material-music-symbol-notemusic-materialcarnivalmusiccommercial-materialc4d-png-image_618221.png" type="image/png">
 
 </head>
@@ -17,7 +17,7 @@
 <div>
 
 
-<form action="../processes/insert.php" method="POST" onsubmit="return validarFormulario()" class="form_register" >
+<form action="../processes/validaciones/php/insert.php" method="POST" onsubmit="return validarFormulario()" class="form_register" >
 <h2>Registro de Usuario</h2>
     <div class= "register_nombre">
         <label>Usuario</label>

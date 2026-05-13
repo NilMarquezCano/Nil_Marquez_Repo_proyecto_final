@@ -23,8 +23,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Decidimos la consulta según lo que encontramos
         if ($tieneArroba) {
             $sql = "SELECT * FROM usuario WHERE email = '$usuario'";
+            $tipo_user = "email";
         } else {
             $sql = "SELECT * FROM usuario WHERE nombre = '$usuario'";
+            $tipo_user = "user";
         }
 
         //buscamos al usuario por su nombre (no por la contra)
@@ -49,8 +51,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     
                 echo"<script> alert('contraseña incorrecta'); window.location='../view/login.html';</script>";
             }
-        }else{// error usuario no existe
+        }else if ($tipo_user == "user") {// error usuario no existe
             echo "<script> alert('El usuario no existe'); window.location='../view/login.html';</script>";
+            }else {
+            echo "<script> alert('El correo no existe'); window.location='../view/login.html';</script>";
             }
         }
     }
