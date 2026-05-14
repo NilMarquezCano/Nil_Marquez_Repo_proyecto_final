@@ -1,6 +1,5 @@
 <?php
-include("../scripts/conexion.php");
-
+include("../../../scripts/conexion.php");
 $usuario = $_POST['username'];
 $password = $_POST['password'];
 $email = $_POST['email'];
@@ -56,12 +55,12 @@ $resultado_2 = mysqli_prepare($conn,$sqlInsert);
             if (mysqli_stmt_execute($resultado_2)) {
                 echo "<script>
                         alert('¡Registro exitoso! Ya puedes iniciar sesión.');
-                        window.location.href = '../view/login.html';
+                        window.location.href = '../../../../view/login.html';
                     </script>";
             } else {
                 echo "<script>
                         alert('¡Registro fallido!.');
-                        window.location.href = '../view/register.php';
+                        window.location.href = '../../../../../view/register.php';
                     </script>";
             }
             mysqli_stmt_close($resultado_2);

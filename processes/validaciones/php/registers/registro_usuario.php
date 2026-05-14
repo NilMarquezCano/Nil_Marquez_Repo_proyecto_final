@@ -1,5 +1,5 @@
 <?php
-include '../scripts/conexion.php';
+include '../../../../../scripts/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (mysqli_stmt_execute($result)) {
                 echo "<script>
                         alert('Registro exitoso. Ya puede iniciar sesión.');
-                        window.location.href = '../view/login.html';
+                        window.location.href = '../../../../../view/login.html';
                       </script>";
             } else {
                 echo "Error al registrar: " . mysqli_stmt_error($result);
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     mysqli_close($conn);
 
 } else {
-    header("Location: ../view/registro_usuarios.html");
+    header("Location: ../../../../../view/registro_usuarios.html");
     exit;
 }
-?>  
+?>

@@ -1,5 +1,5 @@
 <?php
-include '../scripts/conexion.php';
+include '../../../../../scripts/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (mysqli_stmt_execute($result)) {
                 echo "<script>
                         alert('Propietario registrado exitosamente.');
-                        window.location.href = '../view/tabla_propietarios.php';
+                        window.location.href = '../../../../../view/tabla_propietarios.php';
                       </script>";
             } else {
                 echo "Error al registrar: " . mysqli_stmt_error($result);
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     mysqli_close($conn);
 
 } else {
-    header("Location: ../view/registro_dueño.html");
+    header("Location: ../../../../../view/registro_dueño.html");
     exit;
 }
 ?>
