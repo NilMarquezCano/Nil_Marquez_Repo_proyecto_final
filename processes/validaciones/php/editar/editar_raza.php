@@ -6,7 +6,7 @@ if (!isset($_SESSION["usuario"])) {
     exit;
 }
 
-include "./includes/conexion.php";
+include "../../../../scripts/conexion.php";
 
 $id = $_GET['id'];
 
@@ -23,11 +23,12 @@ if (!$r) {
 <head>
     <meta charset="UTF-8">
     <title>Editar Raza</title>
+    <link rel="stylesheet" href="../../../../css/style.css">
 </head>
 <body>
     <h1>Editar Raza: <?php echo htmlspecialchars($r['nombre']); ?></h1>
 
-    <form method="POST" action="./modificar_raza.php">
+    <form method="POST" action="../modificar/modificar_raza.php">
 
         <!-- Valores ocultos. Si no se modifica nada se usan estos valores -->
         <input type="hidden" name="id_raza"             value="<?php echo $id; ?>">
@@ -69,7 +70,7 @@ if (!$r) {
         </label><br><br>
 
         <button type="submit">Guardar cambios</button>
-        <a href="./tabla_razas.php">Cancelar</a>
+        <a href="../../../../view/tabla_razas.php">Cancelar</a>
     </form>
 </body>
 </html>

@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_POST['nombre']) && isset($_POST['chip']) && isset($_POST['tipo']) && isset($_POST['sexo']) && isset($_POST['raza']) && isset($_POST['peso']) && isset($_POST['tamaño']) && isset($_POST['comportamiento']) && isset($_POST['fecha']) && isset($_POST['veterinario']) && isset($_POST['propietario'])) {
 
-        include "includes/conexion.php";
+
 
         $nombre         = $_POST['nombre'];
         $chip           = $_POST['chip'];

@@ -6,7 +6,7 @@ if (!isset($_SESSION["usuario"])) {
     exit;
 }
 
-include "../../../../includes/conexion.php";
+include "../../../../scripts/conexion.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 

@@ -6,7 +6,7 @@ if (!isset($_SESSION["usuario"])) {
     exit;
 }
 
-include "./includes/conexion.php";
+include "../../../../scripts/conexion.php";
 
 $id = $_GET['id'];
 
@@ -23,11 +23,12 @@ if (!$p) {
 <head>
     <meta charset="UTF-8">
     <title>Editar Propietario</title>
+    <link rel="stylesheet" href="../../../../css/style.css">
 </head>
 <body>
     <h1>Editar Propietario: <?php echo htmlspecialchars($p['nombre']); ?></h1>
 
-    <form method="POST" action="./modificar_propietario.php">
+    <form method="POST" action="../modificar/modificar_propietario.php">
 
         <!-- Valores ocultos. Si no se modifica nada se usan estos valores -->
         <input type="hidden" name="id_propietario"   value="<?php echo $id; ?>">
@@ -58,7 +59,7 @@ if (!$p) {
         </label><br><br>
 
         <button type="submit">Guardar cambios</button>
-        <a href="./tabla_propietarios.php">Cancelar</a>
+        <a href="../../../../view/tabla_propietarios.php">Cancelar</a>
     </form>
 </body>
 </html>

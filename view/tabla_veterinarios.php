@@ -6,7 +6,7 @@ if (!isset($_SESSION["usuario"])) {
     exit;
 }
 
-include "./includes/conexion.php";
+include "../scripts/conexion.php";
 
 $usuario_logeado = $_SESSION["usuario"];
 
@@ -43,6 +43,7 @@ $hay_filtros = $fil_nombre != '' || $fil_apellido != '' || $fil_email != '' || $
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla Veterinarios</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <h1>Veterinarios</h1>
@@ -98,8 +99,8 @@ $hay_filtros = $fil_nombre != '' || $fil_apellido != '' || $fil_email != '' || $
             <td><?= htmlspecialchars($fila['Especialidad']) ?></td>
             <td><?= htmlspecialchars($fila['sal']) ?></td>
             <td>
-                <a href="./editar_veterinario.php?id=<?= $fila['id_veterinario'] ?>">Modificar</a> |
-                <a href="./eliminar_veterinario.php?id_veterinario=<?= $fila['id_veterinario'] ?>" onclick="return confirm('¿Seguro que quieres eliminar este veterinario?')">Eliminar</a>
+                <a href="../processes/validaciones/php/editar/editar_veterinario.php?id=<?= $fila['id_veterinario'] ?>">Modificar</a> |
+                <a href="../processes/validaciones/php/eliminar/eliminar_veterinario.php?id_veterinario=<?= $fila['id_veterinario'] ?>" onclick="return confirm('¿Seguro que quieres eliminar este veterinario?')">Eliminar</a>
             </td>
         </tr>
         <?php

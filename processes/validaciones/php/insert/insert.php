@@ -1,5 +1,5 @@
 <?php
-include("../../../scripts/conexion.php");
+include("../../../../scripts/conexion.php");
 $usuario = $_POST['username'];
 $password = $_POST['password'];
 $email = $_POST['email'];
@@ -60,7 +60,7 @@ $resultado_2 = mysqli_prepare($conn,$sqlInsert);
             } else {
                 echo "<script>
                         alert('¡Registro fallido!.');
-                        window.location.href = '../../../../../view/register.php';
+                        window.location.href = '../../../../view/register.php';
                     </script>";
             }
             mysqli_stmt_close($resultado_2);

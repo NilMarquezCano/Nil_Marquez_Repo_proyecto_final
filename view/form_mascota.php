@@ -6,7 +6,7 @@ if (!isset($_SESSION["usuario"])) {
     exit;
 }
 
-include "./includes/conexion.php";
+include "../scripts/conexion.php";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -14,10 +14,12 @@ include "./includes/conexion.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Añadir Mascota</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../processes/validaciones/js/registro_mascotas.js" defer></script>
 </head>
 <body>
     <h1>Añadir Mascota</h1>
-    <form method="POST" action="./inser_mascota.php">
+    <form method="POST" action="../processes/validaciones/php/insert/inser_mascota.php">
 
         <label>Nombre: <input type="text" name="nombre" required></label><br><br>
         <label>Chip: <input type="text" name="chip" maxlength="15" required></label><br><br>

@@ -6,7 +6,7 @@ if (!isset($_SESSION["usuario"])) {
     exit;
 }
 
-include "./includes/conexion.php";
+include "../scripts/conexion.php";
 
 $usuario_logeado = $_SESSION["usuario"];
 
@@ -41,6 +41,7 @@ $hay_filtros = $fil_nombre != '' || $fil_tamaño != '' || $fil_compor != '' || $
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla Razas</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <h1>Razas</h1>
@@ -59,7 +60,7 @@ $hay_filtros = $fil_nombre != '' || $fil_tamaño != '' || $fil_compor != '' || $
     <?php endif; ?>
 
     <br>
-    <a href="./form_raza.html">+ Añadir raza</a>
+    <a href="../processes/validaciones/php/form_raza.html">+ Añadir raza</a>
     <br><br>
 
     <?php if (isset($_GET['mensaje']) && $_GET['mensaje'] == 'eliminado'): ?>
@@ -93,8 +94,8 @@ $hay_filtros = $fil_nombre != '' || $fil_tamaño != '' || $fil_compor != '' || $
             <td><?= htmlspecialchars($fila['Caract_generales']) ?></td>
             <td><?= htmlspecialchars($fila['esperanza_vida']) ?></td>
             <td>
-                <a href="./editar_raza.php?id=<?= $fila['id_raza'] ?>">Modificar</a> |
-                <a href="./eliminar_raza.php?id_raza=<?= $fila['id_raza'] ?>" onclick="return confirm('¿Seguro que quieres eliminar esta raza?')">Eliminar</a>
+                <a href="../processes/validaciones/php/editar/editar_raza.php?id=<?= $fila['id_raza'] ?>">Modificar</a> |
+                <a href="../processes/validaciones/php/eliminar/eliminar_raza.php?id_raza=<?= $fila['id_raza'] ?>" onclick="return confirm('¿Seguro que quieres eliminar esta raza?')">Eliminar</a>
             </td>
         </tr>
         <?php

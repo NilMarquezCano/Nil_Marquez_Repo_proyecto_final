@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Añadir Raza</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    <script src="../../js/registro_razas.js" defer></script>
 </head>
 <body>
     <h1>Añadir Raza</h1>
-    <form method="POST" action="./inser_raza.php">
+    <form method="POST" action="./insert/inser_raza.php">
 
         <label>Nombre: <input type="text" name="nombre" required></label><br><br>
 
@@ -28,7 +30,7 @@
         <label>Esperanza de vida (ej: 12-15 años): <input type="text" name="vida" required></label><br><br>
 
         <button type="submit">Guardar raza</button>
-        <a href="./tabla_razas.php">Cancelar</a>
+        <a href="../../../view/tabla_razas.php">Cancelar</a>
     </form>
 </body>
 </html>

@@ -3,7 +3,7 @@
 if(!isset ($_SESSION["usuario"])) {
     header("Location: ./login.html");
 }
-include "includes/conexion.php";
+include "../scripts/conexion.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 

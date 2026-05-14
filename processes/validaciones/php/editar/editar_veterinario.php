@@ -6,7 +6,7 @@ if (!isset($_SESSION["usuario"])) {
     exit;
 }
 
-include "./includes/conexion.php";
+include "../../../../scripts/conexion.php";
 
 $id = $_GET['id'];
 
@@ -23,11 +23,12 @@ if (!$v) {
 <head>
     <meta charset="UTF-8">
     <title>Editar Veterinario</title>
+    <link rel="stylesheet" href="../../../../css/style.css">
 </head>
 <body>
     <h1>Editar Veterinario: <?php echo htmlspecialchars($v['nombre']); ?></h1>
 
-    <form method="POST" action="./modificar_veterinario.php">
+    <form method="POST" action="../modificar/modificar_veterinario.php">
 
         <!-- Valores ocultos. Si no se modifica nada se usan estos valores -->
         <input type="hidden" name="id_veterinario"      value="<?php echo $id; ?>">
@@ -68,7 +69,7 @@ if (!$v) {
         </label><br><br>
 
         <button type="submit">Guardar cambios</button>
-        <a href="./tabla_veterinarios.php">Cancelar</a>
+        <a href="../../../../view/tabla_veterinarios.php">Cancelar</a>
     </form>
 </body>
 </html>

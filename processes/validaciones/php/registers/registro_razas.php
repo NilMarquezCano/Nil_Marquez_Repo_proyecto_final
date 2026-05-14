@@ -1,5 +1,5 @@
 <?php
-include '../../../../../scripts/conexion.php';
+include '../../../../scripts/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (mysqli_stmt_execute($result)) {
                 echo "<script>
                         alert('Raza registrada exitosamente.');
-                        window.location.href = '../../../../../view/tabla_razas.php';
+                        window.location.href = '../../../../view/tabla_razas.php';
                       </script>";
             } else {
                 echo "Error al registrar: " . mysqli_stmt_error($result);
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     mysqli_close($conn);
 
 } else {
-    header("Location: ../../../../../../view/registro_razas.html");
+    header("Location: ../../../../view/tabla_razas.php");
     exit;
 }
 ?>

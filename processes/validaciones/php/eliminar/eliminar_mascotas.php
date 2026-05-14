@@ -5,7 +5,7 @@ if (!isset($_SESSION["usuario"])) {
     exit;
 }
 
-include "../../../../includes/conexion.php";
+include "../../../../scripts/conexion.php";
 
 if (isset($_GET['id_mascota']) && is_numeric($_GET['id_mascota'])) {
     $id = (int)$_GET['id_mascota'];

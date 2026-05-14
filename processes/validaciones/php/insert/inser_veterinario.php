@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_POST['nombre'], $_POST['apellido'], $_POST['num_telef'], $_POST['email'], $_POST['dni'], $_POST['especialidad'], $_POST['sal'])) {
 
-        include "./includes/conexion.php";
+        include "../../../../scripts/conexion.php";
 
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];

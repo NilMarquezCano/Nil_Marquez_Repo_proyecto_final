@@ -1,12 +1,12 @@
 <?php
-include '../../../../../scripts/conexion.php';
+include '../../../../scripts/conexion.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_POST['nombre']) && isset($_POST['chip']) && isset($_POST['tipo']) && isset($_POST['sexo']) && isset($_POST['raza']) && isset($_POST['peso']) && isset($_POST['tamaño']) && isset($_POST['comportamiento']) && isset($_POST['fecha']) && isset($_POST['veterinario']) && isset($_POST['propietario'])) {
 
-        include "includes/conexion.php";
+
 
         $nombre         = $_POST['nombre'];
         $chip           = $_POST['chip'];
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_bind_param($resultado, "ssssiidss​s", $chip, $nombre, $sexo, $fecha, $raza, $propietario, $veterinario, $peso, $tamaño, $comportamiento, $tipo);
 
             if (mysqli_stmt_execute($resultado)) {
-                echo "<script>alert('Registro exitoso!'); window.location.href='../../../../../tabla_mascotas.php'</script>";
+                echo "<script>alert('Registro exitoso!'); window.location.href='../../../../view/tabla_mascotas.php'</script>";
             } else {
                 echo "Error al registrar: " . mysqli_stmt_error($resultado); 
             }
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 } else {
-    header("Location: ../../../../../registro_mascotas.html");
+    header("Location: ../../../../view/form_mascota.php");
     exit;
 }
 ?>

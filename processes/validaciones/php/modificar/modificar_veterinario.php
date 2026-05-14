@@ -2,11 +2,11 @@
 session_start();
 
 if (!isset($_SESSION["usuario"])) {
-    header("Location: ../../../../../view/login.html");
+    header("Location: ../../../../view/login.html");
     exit;
 }
 
-include "../../../../../includes/conexion.php";
+include "../../../../scripts/conexion.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         mysqli_stmt_bind_param($stmt, "ssisssdi", $nombre, $apellido, $telef, $email, $dni, $especialidad, $sal, $id);
 
         if (mysqli_stmt_execute($stmt)) {
-            header("Location: ./tabla_veterinarios.php?mensaje=actualizado");
+            header("Location: ../../../../view/tabla_veterinarios.php?mensaje=actualizado");
         } else {
             echo "Error al actualizar: " . mysqli_stmt_error($stmt);
         }

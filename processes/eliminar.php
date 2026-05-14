@@ -4,7 +4,7 @@ if(!isset ($_SESSION["usuario"])) {
     header("Location: ./login.html");
 }
 
-include "includes/conexion.php";
+include "../scripts/conexion.php";
 
 if (isset($_GET['id_mascota']) && is_numeric($_GET['id_mascota'])){
     $id = $_GET['id_mascota'];

@@ -6,7 +6,7 @@ if (!isset($_SESSION["usuario"])) {
     exit;
 }
 
-include "./includes/conexion.php";
+include "../scripts/conexion.php";
 
 $usuario_logeado = $_SESSION["usuario"];
 
@@ -64,6 +64,7 @@ $hay_filtros = $fil_chip != '' || $fil_compor != '' || $fil_fechaN != '' || $fil
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla Mascotas</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <h1>Mascotas</h1>
@@ -129,8 +130,8 @@ $hay_filtros = $fil_chip != '' || $fil_compor != '' || $fil_fechaN != '' || $fil
             <td><?= htmlspecialchars($fila['Fecha']) ?></td>
             <td><?= htmlspecialchars($fila['Veterinario']) ?></td>
             <td>
-                <a href="./editar_mascota.php?id=<?= $fila['id_mascota'] ?>">Modificar</a> |
-                <a href="./eliminar_mascotas.php?id_mascota=<?= $fila['id_mascota'] ?>" onclick="return confirm('¿Seguro que quieres eliminar esta mascota?')">Eliminar</a>
+                <a href="../processes/validaciones/php/editar/editar_mascota.php?id=<?= $fila['id_mascota'] ?>">Modificar</a> |
+                <a href="../processes/validaciones/php/eliminar/eliminar_mascotas.php?id_mascota=<?= $fila['id_mascota'] ?>" onclick="return confirm('¿Seguro que quieres eliminar esta mascota?')">Eliminar</a>
             </td>
         </tr>
         <?php

@@ -2,11 +2,11 @@
 session_start();
 
 if (!isset($_SESSION["usuario"])) {
-    header("Location: ../../../../login.html");
+    header("Location: ../../../../view/login.html");
     exit;
 }
 
-include "../../../../includes/conexion.php";
+include "../../../../scripts/conexion.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 

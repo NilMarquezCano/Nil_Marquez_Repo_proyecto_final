@@ -6,7 +6,7 @@ if (!isset($_SESSION["usuario"])) {
     exit;
 }
 
-include "./includes/conexion.php";
+include "../scripts/conexion.php";
 
 $usuario_logeado = $_SESSION["usuario"];
 
@@ -43,6 +43,7 @@ $hay_filtros = $fil_nombre != '' || $fil_apellido != '' || $fil_email != '' || $
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla Propietarios</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <h1>Propietarios</h1>
@@ -94,8 +95,8 @@ $hay_filtros = $fil_nombre != '' || $fil_apellido != '' || $fil_email != '' || $
             <td><?= htmlspecialchars($fila['email']) ?></td>
             <td><?= htmlspecialchars($fila['Dni']) ?></td>
             <td>
-                <a href="./editar_propietario.php?id=<?= $fila['id_propietario'] ?>">Modificar</a> |
-                <a href="./eliminar_propietario.php?id_propietario=<?= $fila['id_propietario'] ?>" onclick="return confirm('¿Seguro que quieres eliminar este propietario?')">Eliminar</a>
+                <a href="../processes/validaciones/php/editar/editar_propietario.php?id=<?= $fila['id_propietario'] ?>">Modificar</a> |
+                <a href="../processes/validaciones/php/eliminar/eliminar_propietario.php?id_propietario=<?= $fila['id_propietario'] ?>" onclick="return confirm('¿Seguro que quieres eliminar este propietario?')">Eliminar</a>
             </td>
         </tr>
         <?php

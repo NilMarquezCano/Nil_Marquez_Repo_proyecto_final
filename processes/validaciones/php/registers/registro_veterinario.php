@@ -1,5 +1,5 @@
 <?php
-include '../../../../../scripts/conexion.php';
+include '../../../../scripts/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (mysqli_stmt_execute($result)) {
                 echo "<script>
                         alert('Veterinario registrado exitosamente.');
-                        window.location.href = '../../../../../view/tabla_veterinarios.php';
+                        window.location.href = '../../../../view/tabla_veterinarios.php';
                       </script>";
             } else {
                 echo "Error al registrar: " . mysqli_stmt_error($result);
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     mysqli_close($conn);
 
 } else {
-    header("Location: ../../../../../view/registro_veterinarios.html");
+    header("Location: ../../../../view/form_veterinario.html");
     exit;
 }
 ?>
